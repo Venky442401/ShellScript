@@ -1,6 +1,11 @@
 #!/bin/bash
 Validate(){
-    if[${1} -eq 0]
+    if[ $1 -ne 0 ]
+    then 
+        echo "$2 installation failed"
+    else
+        echo "$2 Installed successfully"
+    fi
 }
 if [ $UID -ne 0 ]
 then 
@@ -10,12 +15,12 @@ else
 fi
 
 dnf install nginx -y
-if [$? -eq 0]
+if [ $? -ne 0 ]
 then 
-    echo "Installed successfully"
-else
     echo "nginx installation failed"
+else
+    echo "Installed successfully"
 fi
-
+Validate $?,"nginx"
 #systemctl enable nginx
 #systemctl start nginx
