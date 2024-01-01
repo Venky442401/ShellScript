@@ -2,9 +2,9 @@
 Validate(){
     if[ $1 -ne 0 ]
     then 
-        echo "$2 installation failed"
+        echo "installation failed"
     else
-        echo "$2 Installed successfully"
+        echo "Installed successfully"
     fi
 }
 if [ $UID -ne 0 ]
